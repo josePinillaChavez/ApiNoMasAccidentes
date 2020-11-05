@@ -12,3 +12,17 @@ C:\Users\josep\source\repos\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test
 C:\Users\josep\source\repos\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.csproj.CopyComplete
 C:\Users\josep\source\repos\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.dll
 C:\Users\josep\source\repos\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.pdb
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\Test.deps.json
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\Test.runtimeconfig.json
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\Test.runtimeconfig.dev.json
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\Test.dll
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\Test.pdb
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.dll
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.pdb
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.csprojAssemblyReference.cache
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.csproj.CoreCompileInputs.cache
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.AssemblyInfoInputs.cache
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.AssemblyInfo.cs
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.csproj.CopyComplete
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.dll
+C:\Users\josep\source\repos\3\ApiNoMasAccidentes\Test\obj\Debug\netcoreapp2.1\Test.pdb
