@@ -12216,23 +12216,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\josep\\.nuget\\packages\\": {},
+    "C:\\Users\\gonzalo\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
+      "projectUniqueName": "C:\\Users\\gonzalo\\Desktop\\API\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
       "projectName": "ApiNoMasAccidentes",
-      "projectPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
-      "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\obj\\",
+      "projectPath": "C:\\Users\\gonzalo\\Desktop\\API\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
+      "packagesPath": "C:\\Users\\gonzalo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gonzalo\\Desktop\\API\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gonzalo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
