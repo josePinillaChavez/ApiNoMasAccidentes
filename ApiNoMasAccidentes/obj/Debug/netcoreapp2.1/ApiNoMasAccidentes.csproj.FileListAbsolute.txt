@@ -45,7 +45,6 @@ C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\ne
 C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.runtimeconfig.dev.json
 C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.dll
 C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.pdb
-C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.csprojAssemblyReference.cache
 C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.csproj.CoreCompileInputs.cache
 C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.RazorAssemblyInfo.cache
 C:\Users\josep\source\repos\3\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.RazorAssemblyInfo.cs
