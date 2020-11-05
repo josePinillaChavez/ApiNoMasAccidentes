@@ -1,0 +1,14 @@
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.deps.json
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.runtimeconfig.json
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.runtimeconfig.dev.json
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.dll
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\bin\Debug\netcoreapp2.1\ApiNoMasAccidentes.pdb
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.csproj.CoreCompileInputs.cache
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.RazorAssemblyInfo.cache
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.RazorAssemblyInfo.cs
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.AssemblyInfoInputs.cache
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.AssemblyInfo.cs
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.RazorTargetAssemblyInfo.cache
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.dll
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.pdb
+C:\Users\josep\source\repos\ApiNoMasAccidentes\ApiNoMasAccidentes\obj\Debug\netcoreapp2.1\ApiNoMasAccidentes.csprojAssemblyReference.cache
