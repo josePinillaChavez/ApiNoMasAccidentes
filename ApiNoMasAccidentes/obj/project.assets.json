@@ -12222,11 +12222,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
+      "projectUniqueName": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
       "projectName": "ApiNoMasAccidentes",
-      "projectPath": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
+      "projectPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj",
       "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\obj\\",
+      "outputPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

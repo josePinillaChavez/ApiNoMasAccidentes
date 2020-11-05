@@ -6488,11 +6488,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\Test\\Test.csproj",
+      "projectPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\Test\\obj\\",
+      "outputPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6511,8 +6511,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj": {
-              "projectPath": "C:\\Users\\josep\\source\\repos\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj"
+            "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj": {
+              "projectPath": "C:\\Users\\josep\\source\\repos\\2\\ApiNoMasAccidentes\\ApiNoMasAccidentes\\ApiNoMasAccidentes.csproj"
             }
           }
         }
