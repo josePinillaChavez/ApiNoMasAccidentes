@@ -153,7 +153,7 @@ namespace ApiNoMasAccidentes.Models
 
 						AccidenteResponse accidente = new AccidenteResponse();
 						accidente.ID_ACCIDENTE = Convert.ToInt32(row["ID_ACCIDENTE"].ToString());
-						accidente.ID_DETALLE_CONTRATO = Convert.ToInt32(row["ID_DETALLE_CONTRATO"].ToString());
+						accidente.id_contrato = Convert.ToInt32(row["id_contrato"].ToString());
 						accidente.DETALLE_ACCIDENTE = row["DETALLE_ACCIDENTE"].ToString();
 						accidente.FECHA_ACCIDENTE = Convert.ToDateTime(row["FECHA_ACCIDENTE"].ToString());
 						accidente.USUARIO = Convert.ToInt32(row["USUARIO"].ToString());

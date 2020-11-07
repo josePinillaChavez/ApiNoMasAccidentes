@@ -44,7 +44,7 @@ namespace ApiNoMasAccidentes.Controllers
 
 		// POST: api/Cliente
 		//CrearCliente
-		[HttpPost]
+		[HttpPost("eliminar")]
 		public void eliminar([FromBody] EmpresaEliminar empresaRequest)
 		{
 			EmpresaModel empresa = new EmpresaModel();

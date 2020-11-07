@@ -9,7 +9,7 @@ namespace ApiNoMasAccidentes.Models
 	{
 
 		public int ID_ACCIDENTE { get; set; }
-		public int ID_DETALLE_CONTRATO { get; set; }
+		public int id_contrato { get; set; }
 		public string DETALLE_ACCIDENTE { get; set; }
 		public DateTime FECHA_ACCIDENTE { get; set; }
 		public int USUARIO { get; set; }

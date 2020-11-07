@@ -29,7 +29,7 @@ namespace ApiNoMasAccidentes.Controllers
 		public void crear([FromBody] CursoCrearRequest cursoRequest)
 		{
 			CursoModel empresa = new CursoModel();
-			empresa.CrearCurso(cursoRequest.IN_ID_DETALLE_CONTRATO, cursoRequest.IN_NOMBRE_CURSO,
+			empresa.CrearCurso(cursoRequest.IN_ID_CONTRATO, cursoRequest.IN_NOMBRE_CURSO,
 				cursoRequest.IN_FECHA_INICIO, cursoRequest.IN_FECHA_TERMINMO, cursoRequest.IN_MATERIALES, cursoRequest.IN_USUARIO);
 		}
 
@@ -46,7 +46,7 @@ namespace ApiNoMasAccidentes.Controllers
 
 
 		// POST: api/Curso
-		[HttpPost]
+		[HttpPost("eliminar")]
 		public void eliminar([FromBody] CursoEliminarRequest cursoRequest)
 		{
 			CursoModel empresa = new CursoModel();

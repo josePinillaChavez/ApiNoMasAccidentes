@@ -7,7 +7,7 @@ namespace ApiNoMasAccidentes.Models
 {
 	public class CursoResponse
 	{
-
+		public int id_contrato { get; set; }
 		public int id_curso { get; set; }
 		public string nombre_curso { get; set; }
 		public DateTime fecha_inicio { get; set; }
@@ -15,14 +15,15 @@ namespace ApiNoMasAccidentes.Models
 		public string nombre { get; set; }
 		public string nombreProfesional { get; set; }
 		public string resuelto { get; set; }
+		public string materiales { get; set; }
 
-	
+
 	}
 
 	public class CursoCrearRequest
 	{
 		
-		public int IN_ID_DETALLE_CONTRATO { get; set; }
+		public int IN_ID_CONTRATO { get; set; }
 		public string IN_NOMBRE_CURSO { get; set; }
 		public DateTime IN_FECHA_INICIO { get; set; }
 		public DateTime IN_FECHA_TERMINMO { get; set; }

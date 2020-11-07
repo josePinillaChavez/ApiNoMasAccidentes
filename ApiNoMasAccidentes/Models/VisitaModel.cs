@@ -139,7 +139,7 @@ namespace ApiNoMasAccidentes.Models
 					OracleCommand cmd = new OracleCommand();
 					cmd.Connection = conn;
 					cmd.InitialLONGFetchSize = 1000;
-					cmd.CommandText = "DUOCNMA.SP_LISTAR_VISITA";
+					cmd.CommandText = "SP_LISTAR_VISITA";
 					cmd.CommandType = CommandType.StoredProcedure;
 
 					cmd.Parameters.Add("T_CURSOR", OracleDbType.RefCursor).Direction = ParameterDirection.Output;

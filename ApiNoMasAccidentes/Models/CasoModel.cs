@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace ApiNoMasAccidentes.Models
 {
-	public class CursoModel
+	public class CasoModel
 	{
-		public void CrearCurso(int IN_ID_CONTRATO, string IN_NOMBRE_CURSO, DateTime IN_FECHA_INICIO, DateTime IN_FECHA_TERMINMO, string IN_MATERIALES, int IN_USUARIO)
+
+		public void CrearCaso(int IN_ID_CONTRATO, int IN_ID_TIPO_CASO, DateTime IN_FECHA_CASO, string IN_RESUELTO)
 		{
 
 			DataSet dti = new DataSet();
@@ -23,17 +24,17 @@ namespace ApiNoMasAccidentes.Models
 					OracleCommand cmd = new OracleCommand();
 					cmd.Connection = conn;
 					cmd.InitialLONGFetchSize = 1000;
-					cmd.CommandText = "SP_CREAR_CURSO";
+					cmd.CommandText = "SP_CREAR_CASO";
 					cmd.CommandType = CommandType.StoredProcedure;
 					cmd.Parameters.Add("IN_ID_CONTRATO", OracleDbType.Int32).Value = IN_ID_CONTRATO;
-					cmd.Parameters.Add("IN_NOMBRE_CURSO", OracleDbType.NVarchar2).Value = IN_NOMBRE_CURSO;
-					cmd.Parameters.Add("IN_FECHA_INICIO", OracleDbType.Date).Value = IN_FECHA_INICIO;
-					cmd.Parameters.Add("IN_FECHA_TERMINMO", OracleDbType.Date).Value = IN_FECHA_TERMINMO;
-					cmd.Parameters.Add("IN_MATERIALES", OracleDbType.NVarchar2).Value = IN_MATERIALES;
-					cmd.Parameters.Add("IN_USUARIO", OracleDbType.Int32).Value = IN_USUARIO;
-	
+					cmd.Parameters.Add("IN_ID_TIPO_CASO", OracleDbType.Int32).Value = IN_ID_TIPO_CASO;
+					cmd.Parameters.Add("IN_RESUELTO", OracleDbType.Char).Value = IN_RESUELTO;
+					cmd.Parameters.Add("IN_FECHA_CASO", OracleDbType.Date).Value = IN_FECHA_CASO;
 					cmd.Parameters.Add("OUT_ESTADO", OracleDbType.Int32).Direction = ParameterDirection.Output;
 					cmd.Parameters.Add("OUT_ID_SALIDA", OracleDbType.Int32).Direction = ParameterDirection.Output;
+
+
+
 
 
 					da.SelectCommand = cmd;
@@ -48,7 +49,7 @@ namespace ApiNoMasAccidentes.Models
 			}
 		}
 
-		public void EliminarCurso(int IN_ID_CURSO)
+		public void EliminarCaso(int IN_ID_CASO)
 		{
 
 			DataSet dti = new DataSet();
@@ -61,9 +62,9 @@ namespace ApiNoMasAccidentes.Models
 					OracleCommand cmd = new OracleCommand();
 					cmd.Connection = conn;
 					cmd.InitialLONGFetchSize = 1000;
-					cmd.CommandText = "SP_DEL_CURSO";
+					cmd.CommandText = "SP_DEL_CASO";
 					cmd.CommandType = CommandType.StoredProcedure;
-					cmd.Parameters.Add("IN_ID_CURSO", OracleDbType.Int32).Value = IN_ID_CURSO;
+					cmd.Parameters.Add("IN_ID_CASO", OracleDbType.Int32).Value = IN_ID_CASO;
 					cmd.Parameters.Add("OUT_ESTADO", OracleDbType.Int32).Direction = ParameterDirection.Output;
 					cmd.Parameters.Add("OUT_ID_SALIDA", OracleDbType.Int32).Direction = ParameterDirection.Output;
 
@@ -82,8 +83,7 @@ namespace ApiNoMasAccidentes.Models
 
 
 
-		public void ActualizarCurso(int IN_ID_CURSO, int IN_ID_DETALLE_CONTRATO, string IN_NOMBRE_CURSO, DateTime IN_FECHA_INICIO, DateTime IN_FECHA_TERMINMO,
-			string IN_MATERIALES,int IN_USUARIO)
+		public void ActualizarCaso(int IN_ID_CASO, int IN_ID_CONTRATO, int IN_ID_TIPO_CASO, string IN_RESUELTO, DateTime IN_FECHA_CASO)
 		{
 
 			DataSet dti = new DataSet();
@@ -96,21 +96,15 @@ namespace ApiNoMasAccidentes.Models
 					OracleCommand cmd = new OracleCommand();
 					cmd.Connection = conn;
 					cmd.InitialLONGFetchSize = 1000;
-					cmd.CommandText = "SP_UPDATE_CURSO";
+					cmd.CommandText = "SP_UPDATE_CASO";
 					cmd.CommandType = CommandType.StoredProcedure;
-					cmd.Parameters.Add("IN_ID_CURSO", OracleDbType.Int32).Value = IN_ID_CURSO;
-					cmd.Parameters.Add("IN_ID_DETALLE_CONTRATO", OracleDbType.Int32).Value = IN_ID_DETALLE_CONTRATO;
-					cmd.Parameters.Add("IN_NOMBRE_CURSO", OracleDbType.NVarchar2).Value = IN_NOMBRE_CURSO;
-					cmd.Parameters.Add("IN_FECHA_INICIO", OracleDbType.Date).Value = IN_FECHA_INICIO;
-					cmd.Parameters.Add("IN_FECHA_TERMINMO", OracleDbType.Date).Value = IN_FECHA_TERMINMO;
-					cmd.Parameters.Add("IN_MATERIALES", OracleDbType.NVarchar2).Value = IN_MATERIALES;
-					cmd.Parameters.Add("IN_USUARIO", OracleDbType.Int32).Value = IN_USUARIO;
+					cmd.Parameters.Add("IN_ID_CASO", OracleDbType.Int32).Value = IN_ID_CASO;
+					cmd.Parameters.Add("IN_ID_CONTRATO", OracleDbType.Int32).Value = IN_ID_CONTRATO;
+					cmd.Parameters.Add("IN_ID_TIPO_CASO", OracleDbType.Int32).Value = IN_ID_TIPO_CASO;
+					cmd.Parameters.Add("IN_RESUELTO", OracleDbType.Char).Value = IN_RESUELTO;
+					cmd.Parameters.Add("IN_FECHA_CASO", OracleDbType.Date).Value =  IN_FECHA_CASO; 
 					cmd.Parameters.Add("OUT_ESTADO", OracleDbType.Int32).Direction = ParameterDirection.Output;
 					cmd.Parameters.Add("OUT_ID_SALIDA", OracleDbType.Int32).Direction = ParameterDirection.Output;
-
-
-
-
 
 					da.SelectCommand = cmd;
 					DataTable dt = new DataTable();
@@ -126,12 +120,12 @@ namespace ApiNoMasAccidentes.Models
 
 
 
-		public string ListarCurso()
+		public string ListarCaso()
 		{
 			DataSet dti = new DataSet();
 			string JSONString = string.Empty;
 
-			List<CursoResponse> cursolist = new List<CursoResponse>();
+			List<CasoResponse> casolist = new List<CasoResponse>();
 
 			try
 			{
@@ -141,7 +135,7 @@ namespace ApiNoMasAccidentes.Models
 					OracleCommand cmd = new OracleCommand();
 					cmd.Connection = conn;
 					cmd.InitialLONGFetchSize = 1000;
-					cmd.CommandText = "DUOCNMA.SP_LISTAR_CURSO";
+					cmd.CommandText = "DUOCNMA.SP_LISTAR_CASO";
 					cmd.CommandType = CommandType.StoredProcedure;
 
 					cmd.Parameters.Add("T_CURSOR", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
@@ -152,21 +146,25 @@ namespace ApiNoMasAccidentes.Models
 
 					foreach (DataRow row in dt.Rows)
 					{
-						CursoResponse curso = new CursoResponse();
 
-						curso.id_contrato = int.Parse(row["id_contrato"].ToString());
-						curso.id_curso = int.Parse(row["id_curso"].ToString());
-						curso.nombre_curso = row["nombre_curso"].ToString();
-						curso.fecha_inicio = Convert.ToDateTime(row["fecha_inicio"].ToString());
-						curso.fecha_terminmo = Convert.ToDateTime(row["fecha_terminmo"].ToString());
-						curso.nombre = row["nombre"].ToString();
-						curso.nombreProfesional = row["nombreProfesional"].ToString();
-						curso.resuelto = row["resuelto"].ToString();
-						curso.materiales = row["materiales"].ToString();
-						cursolist.Add(curso);
-					
+						CasoResponse caso = new CasoResponse();
+						caso.ID_CASO = Convert.ToInt32(row["ID_CASO"].ToString());
+						caso.ID_CONTRATO = Convert.ToInt32(row["ID_CONTRATO"].ToString());
+						caso.descripcion = row["descripcion"].ToString();
+						caso.nombre = row["nombre"].ToString();
+						caso.fecha_caso = Convert.ToDateTime(row["fecha_caso"].ToString());
+						caso.resuelto = row["resuelto"].ToString();
+
+
+
+
+
+		              casolist.Add(caso);
+
+
 					}
-					JSONString = JsonConvert.SerializeObject(cursolist);
+
+					JSONString = JsonConvert.SerializeObject(casolist);
 
 
 
