@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,15 +12,16 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CasoController : ControllerBase
+	[Authorize]
+	public class CasoController : ControllerBase
     {
 
 
 		// GET: api/Profesional
 		[HttpGet("listar")]
-		public string listar()
+		public string Listar()
 		{
-			CasoModel caso = new CasoModel();
+			IcasoRepository caso = new CasoRepository();
 			return caso.ListarCaso();
 		}
 
@@ -26,19 +29,19 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Profesional
 		//CrearProfesional
 		[HttpPost("crear")]
-		public void crear([FromBody] CasoCreate request)
+		public void Crear([FromBody] CasoModel request)
 		{
-			CasoModel caso = new CasoModel();
-			caso.CrearCaso(request.IN_ID_CONTRATO, request.IN_ID_TIPO_CASO, request.IN_FECHA_CASO, request.IN_RESUELTO);
+			IcasoRepository caso = new CasoRepository();
+			caso.CrearCaso(request.id_contrato, request.id_tipo_caso, request.fecha_caso, request.resuelto);
 		}
 
 		// POST: api/Profesional
 		//ActualizarProfesional
 		[HttpPost("actualizar")]
-		public void actualizar([FromBody] CasoUpdate request)
+		public void Actualizar([FromBody] CasoModel request)
 		{
-			CasoModel caso = new CasoModel();
-			caso.ActualizarCaso(request.IN_ID_CASO, request.IN_ID_CONTRATO, request.IN_ID_TIPO_CASO, request.IN_RESUELTO, request.IN_FECHA_CASO);
+			IcasoRepository caso = new CasoRepository();
+			caso.ActualizarCaso(request.id_caso, request.id_contrato, request.id_tipo_caso, request.resuelto, request.fecha_caso);
 
 
 		}
@@ -47,10 +50,10 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Profesional
 		//EliminarProfesional
 		[HttpPost("eliminar")]
-		public void eliminar([FromBody] CasoEliminar request)
+		public void Eliminar([FromBody] CasoModel request)
 		{
-			CasoModel caso = new CasoModel();
-			caso.EliminarCaso(request.IN_ID_CASO);
+			IcasoRepository caso = new CasoRepository();
+			caso.EliminarCaso(request.id_caso);
 
 	   }
 	}

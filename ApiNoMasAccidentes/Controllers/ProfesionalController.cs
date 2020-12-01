@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,35 +12,33 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProfesionalController : ControllerBase
+	[Authorize]
+	public class ProfesionalController : ControllerBase
     {
 
 
 		// GET: api/Profesional
 		[HttpGet("listar")]
-		public string listar()
+
+		public string Listar()
 		{
-			ProfesionalModel profesional = new ProfesionalModel();
+			IprofesionalRepository profesional = new ProfesionalRepository();
 			return profesional.ListarProfesional();
 		}
 
-
-		// POST: api/Profesional
-		//CrearProfesional
 		[HttpPost("crear")]
-		public void crear([FromBody] ProfesionalCrearRequest profesionalRequest)
+		public void Crear([FromBody] ProfesionalModel request)
 		{
-			ProfesionalModel profesional = new ProfesionalModel();
-			profesional.CrearProfesional(profesionalRequest.nombre, profesionalRequest.apellidoPaterno, profesionalRequest.apellidoMaterno, profesionalRequest.rut, profesionalRequest.dvRut, profesionalRequest.telefono, profesionalRequest.email, profesionalRequest.vigente);
+			IprofesionalRepository profesional = new ProfesionalRepository();
+			profesional.CrearProfesional(request.nombre, request.apellido_paterno, request.apellido_materno, request.rut, request.dv_rut, request.telefono, request.email, request.vigente);				
 		}
-
 		// POST: api/Profesional
 		//ActualizarProfesional
 		[HttpPost("actualizar")]
-		public void actualizar([FromBody] ProfesionalActualizarRequest profesionalRequest)
+		public void Actualizar([FromBody] ProfesionalModel request)
 		{
-			ProfesionalModel profesional = new ProfesionalModel();
-			profesional.ActualizarProfesional(profesionalRequest.idProfesional, profesionalRequest.nombre, profesionalRequest.apellidoPaterno, profesionalRequest.apellidoMaterno, profesionalRequest.rut, profesionalRequest.dvRut, profesionalRequest.telefono, profesionalRequest.email);
+			IprofesionalRepository profesional = new ProfesionalRepository();
+			profesional.ActualizarProfesional(request.id_profesional, request.nombre, request.apellido_paterno, request.apellido_materno, request.rut, request.dv_rut, request.telefono, request.email);
 
 
 		}
@@ -47,10 +47,10 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Profesional
 		//EliminarProfesional
 		[HttpPost("eliminar")]
-		public void eliminar([FromBody] ProfesionalEliminarRequest profesionalRequest)
+		public void Eliminar([FromBody] ProfesionalModel request)
 		{
-			ProfesionalModel profesional = new ProfesionalModel();
-			profesional.EliminarProfesional(profesionalRequest.idProfesional);
+			IprofesionalRepository profesional = new ProfesionalRepository();
+			profesional.EliminarProfesional(request.id_profesional);
 
 		}
 	}

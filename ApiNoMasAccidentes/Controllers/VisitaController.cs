@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,14 +12,15 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VisitaController : ControllerBase
+	[Authorize]
+	public class VisitaController : ControllerBase
     {
 
 		// GET: api/Profesional
 		[HttpGet("listar")]
-		public string listar()
+		public string Listar()
 		{
-			VisitaModel visita = new VisitaModel();
+			IvisitaRepository visita = new VisitaRepository();
 			return visita.ListarVisita();
 		}
 
@@ -25,19 +28,19 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Profesional
 		//CrearProfesional
 		[HttpPost("crear")]
-		public void crear([FromBody] VisitaCreate visitalRequest)
+		public void Crear([FromBody] VisitaModel request)
 		{
-			VisitaModel visita = new VisitaModel();
-			visita.CrearVisita(visitalRequest.IN_ID_DETALLE_CONTRATO, visitalRequest.IN_FECHA_INICIO, visitalRequest.IN_FECHA_TERMINMO, visitalRequest.IN_USUARIO);
+			IvisitaRepository visita = new VisitaRepository();
+			visita.CrearVisita(request.id_contrato, request.fecha_inicio, request.fecha_termino, request.usuario);
 		}
 
 		// POST: api/Profesional
 		//ActualizarProfesional
 		[HttpPost("actualizar")]
-		public void actualizar([FromBody] VisitaUpdate visitalRequest)
+		public void actualizar([FromBody] VisitaModel request)
 		{
-			VisitaModel visita = new VisitaModel();
-			visita.ActualizarVisita(visitalRequest.IN_ID_VISITA, visitalRequest.IN_ID_DETALLE_CONTRATO, visitalRequest.IN_FECHA_INICIO, visitalRequest.IN_FECHA_TERMINO, visitalRequest.IN_USUARIO, visitalRequest.IN_RESUELTO);
+			IvisitaRepository visita = new VisitaRepository();
+			visita.ActualizarVisita(request.id_visita, request.id_contrato, request.fecha_inicio, request.fecha_termino, request.usuario, request.resuelto);
 
 
 		}
@@ -46,10 +49,10 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Profesional
 		//EliminarProfesional
 		[HttpPost("eliminar")]
-		public void eliminar([FromBody] VisitaEliminar visitalRequest)
+		public void eliminar([FromBody] VisitaModel request)
 		{
-			VisitaModel visita = new VisitaModel();
-			visita.EliminarVisita(visitalRequest.IN_ID_VISITA);
+			IvisitaRepository visita = new VisitaRepository();
+			visita.EliminarVisita(request.id_visita);
 
 		}
 	}

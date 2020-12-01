@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +12,8 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CursoController : ControllerBase
+	[Authorize]
+	public class CursoController : ControllerBase
     {
 
 
@@ -19,27 +22,25 @@ namespace ApiNoMasAccidentes.Controllers
 		[HttpGet("listar")]
 		public string listar()
 		{
-			CursoModel Curso = new CursoModel();
+			IcursoRepository Curso = new CursoRepository();
 			return Curso.ListarCurso();
 		}
 
 
 		// POST: api/Curso
 		[HttpPost("crear")]
-		public void crear([FromBody] CursoCrearRequest cursoRequest)
+		public void Crear([FromBody] CursoModel request)
 		{
-			CursoModel empresa = new CursoModel();
-			empresa.CrearCurso(cursoRequest.IN_ID_CONTRATO, cursoRequest.IN_NOMBRE_CURSO,
-				cursoRequest.IN_FECHA_INICIO, cursoRequest.IN_FECHA_TERMINMO, cursoRequest.IN_MATERIALES, cursoRequest.IN_USUARIO);
+			IcursoRepository Curso = new CursoRepository();
+			Curso.CrearCurso(request.id_contrato, request.nombre_curso, request.fecha_inicio, request.fecha_termino, request.materiales, request.usuario);
 		}
 
 		// POST: api/Curso
 		[HttpPost("actualizar")]
-		public void actualizar([FromBody] CursoActualizarRequest cursoRequest)
+		public void Actualizar([FromBody] CursoModel request)
 		{
-			CursoModel empresa = new CursoModel();
-			empresa.ActualizarCurso(cursoRequest.IN_ID_CURSO, cursoRequest.IN_ID_DETALLE_CONTRATO, cursoRequest.IN_NOMBRE_CURSO, cursoRequest.IN_FECHA_INICIO,
-				cursoRequest.IN_FECHA_TERMINMO, cursoRequest.IN_MATERIALES, cursoRequest.IN_USUARIO);
+			IcursoRepository Curso = new CursoRepository();
+			Curso.ActualizarCurso(request.id_curso, request.id_contrato, request.nombre_curso, request.fecha_inicio, request.fecha_termino, request.materiales, request.usuario);
 
 
 		}
@@ -47,10 +48,10 @@ namespace ApiNoMasAccidentes.Controllers
 
 		// POST: api/Curso
 		[HttpPost("eliminar")]
-		public void eliminar([FromBody] CursoEliminarRequest cursoRequest)
+		public void Eliminar([FromBody] CursoModel request)
 		{
-			CursoModel empresa = new CursoModel();
-			empresa.EliminarCurso(cursoRequest.IN_ID_CURSO);
+			IcursoRepository Curso = new CursoRepository();
+			Curso.EliminarCurso(request.id_curso);
 		}
 	}
 }

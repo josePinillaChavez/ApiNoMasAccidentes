@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,33 +12,34 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContratoController : ControllerBase
+	[Authorize]
+	public class ContratoController : ControllerBase
     {
 
 		// POST: api/Contrato
 		//Crearempresa
 		[HttpPost("crear")]
-		public void crearContrato([FromBody] ContratoCrearRequest contratoRequest)
+		public void CrearContrato([FromBody] ContratoModel request)
 		{
-			ContratoModel contrato = new ContratoModel();
-			contrato.CrearContrato(contratoRequest.idEmpresa, contratoRequest.idProfesional);
+			IcontratoRepository contrato = new ContratoRepository();
+			contrato.CrearContrato(request.id_contrato);
 		}
 
 		// POST: api/Contrato
 		//eliminarContrato
 		[HttpPost("eliminar")]
-		public void eliminaContrato([FromBody] ContratoEliminarRequest contratoRequest)
+		public void eliminaContrato([FromBody] ContratoModel request)
 		{
-			ContratoModel contrato = new ContratoModel();
-			contrato.EliminarContrato(contratoRequest.idContrato);
+			IcontratoRepository contrato = new ContratoRepository();
+			contrato.EliminarContrato(request.id_contrato);
 		}
 
 
 		// GET: api/Empresa
 		[HttpGet("listar")]
-		public string listar()
+		public string Listar()
 		{
-			ContratoModel contrato = new ContratoModel();
+			IcontratoRepository contrato = new ContratoRepository();
 			return contrato.ListarContrato();
 		}
 

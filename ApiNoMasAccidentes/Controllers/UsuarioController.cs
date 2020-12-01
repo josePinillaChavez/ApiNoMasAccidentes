@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,16 +12,17 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+	[Authorize]
+	public class UsuarioController : ControllerBase
     {
 
 
 
         // GET: api/Usuario
         [HttpGet("listar")]
-        public string listar()
+        public string Listar()
         {
-            UsuarioModel usuario = new UsuarioModel();
+            IusuarioRepository usuario = new UsuarioRepository();
             return usuario.ListarUsuario();
         }
 
@@ -27,19 +30,19 @@ namespace ApiNoMasAccidentes.Controllers
         // POST: api/Usuario
         //CrearUsuario
         [HttpPost("crear")]
-        public void crear([FromBody] UsuarioCrearRequest usuarioRequest)
+        public void Crear([FromBody] UsuarioModel request)
         {
-            UsuarioModel usuario = new UsuarioModel();
-            usuario.CrearUsuario(usuarioRequest.idPerfil, usuarioRequest.usuario, usuarioRequest.contrasena, usuarioRequest.estado, usuarioRequest.rutUsuario, usuarioRequest.dvRut);
+			IusuarioRepository usuario = new UsuarioRepository();
+			usuario.CrearUsuario(request.id_perfil,request.usuario,request.contrasena, request.estado, request.rut_usuario, request.dv_rut);
         }
 
         // POST: api/Usuario
         //CrearUsuario
         [HttpPost("actualizar")]
-        public void actualizar([FromBody] UsuarioActualizarRequest usuarioRequest)
+        public void Actualizar([FromBody] UsuarioModel request)
         {
-            UsuarioModel usuario = new UsuarioModel();
-            usuario.ActualizarUsuario(usuarioRequest.idUsuario, usuarioRequest.usuario, usuarioRequest.contrasena, usuarioRequest.rutUsuario, usuarioRequest.dvRut);
+			IusuarioRepository usuario = new UsuarioRepository();
+			usuario.ActualizarUsuario(request.id_usuario, request.usuario, request.contrasena, request.rut_usuario, request.dv_rut);
 
         }
 
@@ -47,10 +50,10 @@ namespace ApiNoMasAccidentes.Controllers
         // POST: api/Usuario
         //CrearUsuario
         [HttpPost("eliminar")]
-        public void eliminar([FromBody] UsuarioEliminarRequest usuarioRequest)
+        public void Eliminar([FromBody] UsuarioModel request)
         {
-            UsuarioModel usuario = new UsuarioModel();
-            usuario.EliminarUsuario(usuarioRequest.idUsuario);
+			IusuarioRepository usuario = new UsuarioRepository();
+			usuario.EliminarUsuario(request.id_usuario);
         }
 
     }

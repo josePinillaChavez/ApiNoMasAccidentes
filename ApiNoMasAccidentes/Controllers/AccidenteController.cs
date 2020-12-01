@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +12,7 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+	[Authorize]
     public class AccidenteController : ControllerBase
     {
 
@@ -18,7 +21,7 @@ namespace ApiNoMasAccidentes.Controllers
 		[HttpGet("listar")]
 		public string listar()
 		{
-			AccidenteModel accidente = new AccidenteModel();
+			IaccidenteRepository accidente = new AccidenteRepository();
 			return accidente.ListarAccidente();
 		}
 
@@ -26,31 +29,29 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Profesional
 		//CrearProfesional
 		[HttpPost("crear")]
-		public void crear([FromBody] AccidenteCreate accidentelRequest)
+		public void Crear([FromBody] AccidenteModel request)
 		{
-			AccidenteModel accidente = new AccidenteModel();
-			accidente.CrearAccidente(accidentelRequest.IN_ID_DETALLE_CONTRATO, accidentelRequest.IN_DETALLE_ACCIDENTE, accidentelRequest.IN_FECHA_ACCIDENTE, accidentelRequest.IN_USUARIO);
+			IaccidenteRepository accidente = new AccidenteRepository();
+			accidente.CrearAccidente(request.id_contrato, request.detalle_accidente, request.fecha_accidente, request.usuario);
 		}
 
 		// POST: api/Profesional
 		//ActualizarProfesional
 		[HttpPost("actualizar")]
-		public void actualizar([FromBody] AccidenteUpdate accidentelRequest)
+		public void Actualizar([FromBody] AccidenteModel request)
 		{
-			AccidenteModel accidente = new AccidenteModel();
-			accidente.ActualizarAccidente(accidentelRequest.IN_ID_ACCIDENTE, accidentelRequest.IN_ID_DETALLE_CONTRATO, accidentelRequest.IN_DETALLE_ACCIDENTE, accidentelRequest.IN_FECHA_ACCIDENTE, accidentelRequest.IN_USUARIO);
-
-
+			IaccidenteRepository accidente = new AccidenteRepository();
+			accidente.ActualizarAccidente(request.id_acciente, request.id_contrato, request.detalle_accidente, request.fecha_accidente, request.usuario);
 		}
 
 
 		// POST: api/Profesional
 		//EliminarProfesional
 		[HttpPost("eliminar")]
-		public void eliminar([FromBody] AccidenteEliminar accidentelRequest)
+		public void Eliminar([FromBody] AccidenteModel request)
 		{
-			AccidenteModel accidente = new AccidenteModel();
-			accidente.EliminarAccidente(accidentelRequest.IN_ID_ACCIDENTE);
+			IaccidenteRepository accidente = new AccidenteRepository();
+			accidente.EliminarAccidente(request.id_acciente);
 
 		}
 	}

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,15 +12,16 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DocTributarioController : ControllerBase
+	[Authorize]
+	public class DocTributarioController : ControllerBase
     {
 
 		// GET: api/DocTributario
 		[HttpGet("listar")]
-		public string listar()
+		public string Listar()
 		{
-			DocTributarioModel docTributario = new DocTributarioModel();
-			return docTributario.ListarContrato();
+			IdocTributarioRepository doctributario = new DocTributarioRepository();
+			return doctributario.ListarContrato();
 		}
 	}
 }

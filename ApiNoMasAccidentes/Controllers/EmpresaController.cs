@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNoMasAccidentes.DAL;
 using ApiNoMasAccidentes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,13 +12,14 @@ namespace ApiNoMasAccidentes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmpresaController : ControllerBase
+	[Authorize]
+	public class EmpresaController : ControllerBase
     {
 		// GET: api/Empresa
 		[HttpGet("listar")]
-		public string listar()
+		public string Listar()
 		{
-			EmpresaModel empresa = new EmpresaModel();
+			IempresaRepository empresa = new EmpresaRepository();
 			return empresa.ListarEmpresa();
 		}
 
@@ -24,19 +27,19 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Empresa
 		//Crearempresa
 		[HttpPost("crear")]
-		public void crear([FromBody] EmpresaCreate empresaRequest)
+		public void Crear([FromBody] EmpresaModel reqest)
 		{
-			EmpresaModel empresa = new EmpresaModel();
-			empresa.CrearEmpresa(empresaRequest.idRubro, empresaRequest.rut, empresaRequest.dv_rut, empresaRequest.nombre, empresaRequest.telefono, empresaRequest.email);
+			IempresaRepository empresa = new EmpresaRepository();
+			empresa.CrearEmpresa(reqest.id_rubro, reqest.rut, reqest.dv_rut, reqest.nombre, reqest.telefono, reqest.email);
 		}
 
 		// POST: api/Empresa
 		//Crearempresa
 		[HttpPost("actualizar")]
-		public void actualizar([FromBody] EmpresaUpdate empresaRequest)
+		public void Actualizar([FromBody] EmpresaModel reqest)
 		{
-			EmpresaModel empresa = new EmpresaModel();
-			empresa.ActualizarEmpresa(empresaRequest.idEmpresa, empresaRequest.idRubro, empresaRequest.rut,  empresaRequest.dv_rut, empresaRequest.nombre, empresaRequest.telefono, empresaRequest.email);
+			IempresaRepository empresa = new EmpresaRepository();
+			empresa.ActualizarEmpresa(reqest.id_empresa,reqest.id_rubro, reqest.rut, reqest.dv_rut, reqest.nombre, reqest.telefono, reqest.email);
 
 
 		}
@@ -45,10 +48,10 @@ namespace ApiNoMasAccidentes.Controllers
 		// POST: api/Cliente
 		//CrearCliente
 		[HttpPost("eliminar")]
-		public void eliminar([FromBody] EmpresaEliminar empresaRequest)
+		public void Eliminar([FromBody] EmpresaModel reqest)
 		{
-			EmpresaModel empresa = new EmpresaModel();
-			empresa.EliminarEmpresa(empresaRequest.idEmpresa);
+			IempresaRepository empresa = new EmpresaRepository();
+			empresa.EliminarEmpresa(reqest.id_empresa);
 		}
 
 
